@@ -64,32 +64,35 @@
 
 # Пример
 
-
 @@@ gherkin
-    Given a registered Twitter user "biburat"
-    When I request statuses for user "biburat"
-    Then I should see an empty list
+  # features/user_timeline.feature
+  Функционал:
+      Как пользователь,
+      Я должен уметь видеть свою ленту
+
+    Сценарий: только что зарегистрированный пользователь
+      Допустим я зарегистрирован в twitter как "biburat"
+      Если я запрашиваю ленту пользователя "biburat"
+      То я должен увидеть пустую ленту
 @@@
 
-@@@ gherkin
-    # language: ru
-    Допустим я зарегистрирован в twitter как "biburat"
-    И у меня нет статусов
-    Если я запрашиваю свою ленту статусов
-    То я должен увидеть пустую ленту с надписью "Здесь ничего нет"
-@@@ gherkin
-
-!SLIDE
+!SLIDE dark
 
 # Пример
 
-!NOTES
+
+<pre style="background:black">
+<tt>$ cucumber</tt><br>
+<tt><span style='color: gray; background: black; '>#language:&nbsp;ru</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>Функционал:&nbsp;Как&nbsp;пользователь,</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Я&nbsp;должен&nbsp;уметь&nbsp;видеть&nbsp;свою&nbsp;ленту</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Сценарий:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь&nbsp;#&nbsp;features/user_timeline.feature:6</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: #8b8b00; background: black; '>Допустим&nbsp;я&nbsp;зарегистрирован&nbsp;в&nbsp;twitter&nbsp;как&nbsp;&quot;biburat&quot;&nbsp;#&nbsp;features/user_timeline.feature:7</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: #8b8b00; background: black; '>Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;biburat&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/user_timeline.feature:8</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: #8b8b00; background: black; '>То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/user_timeline.feature:9</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>1&nbsp;scenario&nbsp;(</span><span style='color: #8b8b00; background: black; '>1&nbsp;undefined</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>3&nbsp;steps&nbsp;(</span><span style='color: #8b8b00; background: black; '>3&nbsp;undefined</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>0m0.003s</span><span style='color: black; background: black; '><br><br></span></tt>
+</pre>
+
+!NOTE
 * скриншот вывода cucumber
 
 Вы уже можете запустить тесты, сценарий будет помечен как "pending"
 таким образом можно создавать новые сценарии без опасения поломать билд
 
-!SLIDE
+!SLIDE 
 
 # Пример
 ## Ruby
