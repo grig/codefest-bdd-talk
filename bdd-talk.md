@@ -158,13 +158,41 @@
 !SLIDE
 
 # Пример
+
+<pre style="background: black">
+<tt><span style='color: gray; background: black; '>#language:&nbsp;ru</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>Функционал:&nbsp;Как&nbsp;пользователь,</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Я&nbsp;должен&nbsp;уметь&nbsp;видеть&nbsp;свою&nbsp;ленту</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Сценарий:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь&nbsp;#&nbsp;features/user_timeline.feature:6</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Допустим&nbsp;я&nbsp;зарегистрирован&nbsp;в&nbsp;twitter&nbsp;как&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:4</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:8</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: #8b8b00; background: black; '>То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/user_timeline.feature:9</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>1&nbsp;scenario&nbsp;(</span><span style='color: #8b8b00; background: black; '>1&nbsp;undefined</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>3&nbsp;steps&nbsp;(</span><span style='color: #8b8b00; background: black; '>1&nbsp;undefined</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkgreen; background: black; '>2&nbsp;passed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>0m0.003s</span><span style='color: black; background: black; '><br><br></span><span style='color: #8b8b00; background: black; '>You&nbsp;can&nbsp;implement&nbsp;step&nbsp;definitions&nbsp;for&nbsp;undefined&nbsp;steps&nbsp;with&nbsp;these&nbsp;snippets:</span><span style='color: black; background: black; '><br><br></span><span style='color: #8b8b00; background: black; '>То&nbsp;/^я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту$/&nbsp;do</span><span style='color: black; background: black; '><br></span><span style='color: #8b8b00; background: black; '>&nbsp;&nbsp;pending&nbsp;#&nbsp;express&nbsp;the&nbsp;regexp&nbsp;above&nbsp;with&nbsp;the&nbsp;code&nbsp;you&nbsp;wish&nbsp;you&nbsp;had</span><span style='color: black; background: black; '><br></span><span style='color: #8b8b00; background: black; '>end</span><span style='color: black; background: black; '><br><br></span></tt>
+</pre>
+
+!SLIDE
+
+# Пример
+
+@@@ ruby
+    Then /я должен увидеть пустую ленту/ do
+      assert_xpath "not(//div[id='status'])"
+    end
+@@@
+
+!SLIDE
+
+# Пример
+
+<pre style="background: black">
+
+<tt></span><span style='color: gray; background: black; '>bash-3.2$&nbsp;cucumber</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>#language:&nbsp;ru</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>Функционал:&nbsp;Как&nbsp;пользователь,</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Я&nbsp;должен&nbsp;уметь&nbsp;видеть&nbsp;свою&nbsp;ленту</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Сценарий:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь&nbsp;#&nbsp;features/user_timeline.feature:6</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Допустим&nbsp;я&nbsp;зарегистрирован&nbsp;в&nbsp;twitter&nbsp;как&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:4</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:8</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkred; background: black; '>То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:12</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expected&nbsp;response&nbsp;text&nbsp;to&nbsp;match&nbsp;&quot;//div[@id='timeline'&nbsp;and&nbsp;not(.//div[@id='status'])&quot;,&nbsp;actual:&nbsp;&quot;&quot;.</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;false&gt;&nbsp;is&nbsp;not&nbsp;true.&nbsp;(Test::Unit::AssertionFailedError)</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/assertions.rb:48:in&nbsp;`assert_block'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/assertions.rb:500:in&nbsp;`_wrap_assertion'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/assertions.rb:46:in&nbsp;`assert_block'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/assertions.rb:63:in&nbsp;`assert'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/assertions.rb:495:in&nbsp;`_wrap_assertion'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/assertions.rb:61:in&nbsp;`assert'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./features/step_definitions/twitter_steps.rb:25:in&nbsp;`assert_xpath'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./features/step_definitions/twitter_steps.rb:13:in&nbsp;`/я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту/'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features/user_timeline.feature:9:in&nbsp;`То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту'</span><span style='color: black; background: black; '><br><br></span><span style='color: darkred; background: black; '>Failing&nbsp;Scenarios:</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>cucumber&nbsp;features/user_timeline.feature:6</span><span style='color: gray; background: black; '>&nbsp;#&nbsp;Scenario:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>1&nbsp;scenario&nbsp;(</span><span style='color: darkred; background: black; '>1&nbsp;failed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>3&nbsp;steps&nbsp;(</span><span style='color: darkred; background: black; '>1&nbsp;failed</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkgreen; background: black; '>2&nbsp;passed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>0m0.003s</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>bash-3.2$&nbsp;exit</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>Script&nbsp;done&nbsp;on&nbsp;Wed&nbsp;Mar&nbsp;16&nbsp;15:13:09&nbsp;2011</span><span style='color: black; background: black; '><br></span></tt>
+</pre>
+
+!SLIDE
+
+# Пример
 ## Обработчик для "/username"
 
 @@@ ruby
     # app/controllers/status_controller.rb
     class StatusController < ActionController::Base
       def show
-        render :text => ""
+        @statuses = []
+        # render a proper template
       end
     end
 
@@ -172,21 +200,12 @@
     map "/:username" => "status#show"
 @@@
 
-!NOTES
+!NOTE
 
 * проверить реальный синтаксис для маршрутов
 
 * показать, что тест проходит
 
-!SLIDE
-
-# Пример
-
-@@@ruby
-    Then /я должен увидеть пустую ленту с надписью "([^"]*)"/ do |text|
-      assert_xpath "//div[id='statuses']/[text() = '#{text}']"
-    end
-@@@
 
 !SLIDE
 
