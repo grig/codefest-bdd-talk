@@ -115,15 +115,15 @@
 
 @@@ java
     class TwitterSteps {
-	private WebClient client;
-	private Response lastResponse;
+        private WebClient client;
+        private Response lastResponse;
 
-	public TwitterSteps(WebClient client) { this.client = client; }
+        public TwitterSteps(WebClient client) { this.client = client; }
 
-	@When("я запрашиваю ленту пользователя \"([^\"]*)\"")
-	public void whenIRequestStatusesForUser(String username) {
-	    lastResponse = client.get("/" + username);
-	}
+        @When("я запрашиваю ленту пользователя \"([^\"]*)\"")
+        public void whenIRequestStatusesForUser(String username) {
+            lastResponse = client.get("/" + username);
+        }
     }
 @@@
 
@@ -162,7 +162,7 @@
     # app/controllers/status_controller.rb
     class StatusController < ActionController::Base
       def show
-	render :text => ""
+        render :text => ""
       end
     end
 
@@ -252,13 +252,13 @@
     class Stub
       @users = []
       def self.start
-	@server = Server.start
+        @server = Server.start
       end
       def self.stop
-	@server.stop
+        @server.stop
       end
       def self.register(name)
-	@users << User.new(name)
+        @users << User.new(name)
       end
       class Server; end
       class User; end
