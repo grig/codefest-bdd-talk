@@ -98,11 +98,8 @@
 ## Ruby
 
 @@@ ruby
+    # features/step_definitions/twitter_steps.rb
     Given /я зарегистрирован в twitter как "([^"]*)"/ do |username|
-      # todo
-    end
-
-    Given /у меня нет статусов/ do
       # todo
     end
 
@@ -123,7 +120,7 @@
 
         public TwitterSteps(WebClient client) { this.client = client; }
 
-        @When("я запрашиваю ленту пользователя \"([^\"]*)\"")
+        @When("я запрашиваю ленту пользователя \\"(.*)\\"")
         public void whenIRequestStatusesForUser(String username) {
             lastResponse = client.get("/" + username);
         }
@@ -134,7 +131,9 @@
 
 # Пример
 
-* тут вывод cucumber *
+<pre style="background: black;">
+<tt><span style='color: gray; background: black; '>#language:&nbsp;ru</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>Функционал:&nbsp;Как&nbsp;пользователь,</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Я&nbsp;должен&nbsp;уметь&nbsp;видеть&nbsp;свою&nbsp;ленту</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Сценарий:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь&nbsp;#&nbsp;features/user_timeline.feature:6</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Допустим&nbsp;я&nbsp;зарегистрирован&nbsp;в&nbsp;twitter&nbsp;как&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:3</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkred; background: black; '>Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;</span><span style='color: red; background: black; '>biburat</span><span style='color: darkred; background: black; '>&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:7</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection&nbsp;to&nbsp;localhost&nbsp;failed&nbsp;(IOError)</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./features/step_definitions/twitter_steps.rb:16:in&nbsp;`get'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./features/step_definitions/twitter_steps.rb:8:in&nbsp;`/я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;([^&quot;]*)&quot;/'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features/user_timeline.feature:8:in&nbsp;`Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;biburat&quot;'</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkcyan; background: black; '>То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:11</span><span style='color: black; background: black; '><br><br></span><span style='color: darkred; background: black; '>Failing&nbsp;Scenarios:</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>cucumber&nbsp;features/user_timeline.feature:6</span><span style='color: gray; background: black; '>&nbsp;#&nbsp;Scenario:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>1&nbsp;scenario&nbsp;(</span><span style='color: darkred; background: black; '>1&nbsp;failed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>3&nbsp;steps&nbsp;(</span><span style='color: darkred; background: black; '>1&nbsp;failed</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkcyan; background: black; '>1&nbsp;skipped</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkgreen; background: black; '>1&nbsp;passed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>0m0.002s</span><span style='color: black; background: black; '><br></span></tt>
+</pre>
 
 !NOTES
 
