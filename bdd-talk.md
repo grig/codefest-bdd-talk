@@ -1,13 +1,13 @@
 # Behavior-driven development
 
-!SLIDE
+!SLIDE bulleted
 
 # О себе
 ## Алексей Григорович
-## twitter.com/biburat
 
-* Java, ruby, JS
-* TDD-маньяк с примерно 2008г
+* Java, Ruby, JS
+* TDD-маньяк с 2008г
+* экс-"архитектор" в Shamrock Mobile
 
 !SLIDE
 
@@ -285,4 +285,17 @@
       class User; end
     end
 @@@
+
+!SLIDE
+
+# Вопросы?
+
+## Контакты
+* [alex.grigorovich@gmail.com](mailto:alex.grigorovich@gmail.com)
+* [@biburat](http://twitter.com/biburat)
+
+## Слайды
+
+* [Эта презентация](http://grig.github.com/codefest-bdd-talk/)
+* [Исходники](http://github.com/grig/codefest-bdd-talk/)
 
