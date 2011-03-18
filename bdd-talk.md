@@ -21,6 +21,7 @@
 !SLIDE bulleted
 
 # Behavior Driven Development
+## План
 
 * __Что это__
 * <span class="deemph">Причем здесь огурцы</span>
@@ -91,9 +92,9 @@
 
 # Behavior-driven development
 
-* разработка начинается с высокоуровневого функционала
-* сценарии пишутся наперед
-* в разработку сценариев вовлекаются максимум заинтересованных лиц
+* Разработка начинается с высокоуровневого функционала
+* Сценарии пишутся наперед
+* В разработку сценариев вовлекаются максимум заинтересованных лиц
 
 !NOTE
 
@@ -110,6 +111,7 @@
 !SLIDE bulleted
 
 # Behavior Driven Development
+## План
 
 * <span class="deemph">Что это</span>
 * __Причем здесь огурцы__
@@ -121,9 +123,18 @@
 
 [http://cukes.info](http://cukes.info)
 
-* более-менее естественный язык описания сценариев
-* ruby/java/.NET-библиотеки для проработки сценариев
-* скрипты для запуска
+* Более-менее естественный язык описания сценариев
+* Ruby/Java/.NET-библиотеки для проработки сценариев
+* Скрипты для запуска
+
+!SLIDE bulleted
+
+# Behavior Driven Development
+## План
+
+* <span class="deemph">Что это</span>
+* <span class="deemph">Причем здесь огурцы</span>
+* __Пример__
 
 !SLIDE
 
@@ -139,7 +150,7 @@
 
 !SLIDE
 
-# План
+# План работ
 
 1. имплементим клиента для twitter API
 2. имплементим GUI
@@ -155,22 +166,28 @@
 3. реализуем отображение статусов в GUI
 4. учимся постить статусы в твиттер
 ...
-
-!SLIDE
-
-# Behavior-driven development
-
-* сценарии как критерий завершения задачи
-* минимальные достаточные изменения
-* автоматизированное "приемочное" тестирование
-* агрессивный рефакторинг
+N. интегрируем все наработки
 
 !SLIDE
 
 # Пример
 ## Часть функционала twitter-клиента
 
-> Как пользователь, я должен уметь посмотреть свою ленту статусов
+<pre>
+> Как пользователь, я должен уметь видеть свою ленту
+</pre>
+
+!SLIDE
+
+# Пример
+## Описание функционала
+
+@@@ gherkin
+  # features/user_timeline.feature
+  Функционал:
+      Как пользователь,
+      Я должен уметь видеть свою ленту
+@@@
 
 !NOTES
 
@@ -179,6 +196,7 @@
 !SLIDE
 
 # Пример
+## Описание функционала
 
 @@@ gherkin
   # features/user_timeline.feature
@@ -195,7 +213,7 @@
 !SLIDE dark
 
 # Пример
-
+## Запуск
 
 <pre style="background:black">
 <tt>$ cucumber</tt><br>
@@ -211,7 +229,7 @@
 !SLIDE 
 
 # Пример
-## Ruby
+## Реализация шагов на Ruby
 
 @@@ ruby
     # features/step_definitions/twitter_steps.rb
@@ -227,7 +245,7 @@
 !SLIDE
 
 # Пример
-## Java
+## Реализация шагов на Java
 
 @@@ java
     class TwitterSteps {
@@ -246,6 +264,7 @@
 !SLIDE
 
 # Пример
+## Пробный запуск
 
 <pre style="background: black;">
 <tt><span style='color: gray; background: black; '>#language:&nbsp;ru</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>Функционал:&nbsp;Как&nbsp;пользователь,</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Я&nbsp;должен&nbsp;уметь&nbsp;видеть&nbsp;свою&nbsp;ленту</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Сценарий:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь&nbsp;#&nbsp;features/user_timeline.feature:6</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Допустим&nbsp;я&nbsp;зарегистрирован&nbsp;в&nbsp;twitter&nbsp;как&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:3</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkred; background: black; '>Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;</span><span style='color: red; background: black; '>biburat</span><span style='color: darkred; background: black; '>&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:7</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection&nbsp;to&nbsp;localhost&nbsp;failed&nbsp;(IOError)</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./features/step_definitions/twitter_steps.rb:16:in&nbsp;`get'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./features/step_definitions/twitter_steps.rb:8:in&nbsp;`/я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;([^&quot;]*)&quot;/'</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features/user_timeline.feature:8:in&nbsp;`Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;biburat&quot;'</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkcyan; background: black; '>То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:11</span><span style='color: black; background: black; '><br><br></span><span style='color: darkred; background: black; '>Failing&nbsp;Scenarios:</span><span style='color: black; background: black; '><br></span><span style='color: darkred; background: black; '>cucumber&nbsp;features/user_timeline.feature:6</span><span style='color: gray; background: black; '>&nbsp;#&nbsp;Scenario:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>1&nbsp;scenario&nbsp;(</span><span style='color: darkred; background: black; '>1&nbsp;failed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>3&nbsp;steps&nbsp;(</span><span style='color: darkred; background: black; '>1&nbsp;failed</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkcyan; background: black; '>1&nbsp;skipped</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkgreen; background: black; '>1&nbsp;passed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>0m0.002s</span><span style='color: black; background: black; '><br></span></tt>
@@ -261,7 +280,7 @@
 !SLIDE
 
 # Пример
-## старт приложения
+## Старт приложения
 
 @@@ ruby
     # features/support/env.rb
@@ -274,6 +293,23 @@
 !SLIDE
 
 # Пример
+## Реализация обработчика для "/username"
+
+@@@ ruby
+    # app/controllers/status_controller.rb
+    class StatusController < ActionController::Base
+      def show
+        render :text => ""
+      end
+    end
+
+    # routes.rb
+    map "/:username" => "status#show"
+@@@
+!SLIDE
+
+# Пример
+## Запуск тестов
 
 <pre style="background: black">
 <tt><span style='color: gray; background: black; '>#language:&nbsp;ru</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>Функционал:&nbsp;Как&nbsp;пользователь,</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Я&nbsp;должен&nbsp;уметь&nbsp;видеть&nbsp;свою&nbsp;ленту</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;Сценарий:&nbsp;только&nbsp;что&nbsp;зарегистрированный&nbsp;пользователь&nbsp;#&nbsp;features/user_timeline.feature:6</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Допустим&nbsp;я&nbsp;зарегистрирован&nbsp;в&nbsp;twitter&nbsp;как&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:4</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: darkgreen; background: black; '>Если&nbsp;я&nbsp;запрашиваю&nbsp;ленту&nbsp;пользователя&nbsp;&quot;</span><span style='color: green; background: black; '>biburat</span><span style='color: darkgreen; background: black; '>&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/step_definitions/twitter_steps.rb:8</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color: #8b8b00; background: black; '>То&nbsp;я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;features/user_timeline.feature:9</span><span style='color: black; background: black; '><br><br></span><span style='color: gray; background: black; '>1&nbsp;scenario&nbsp;(</span><span style='color: #8b8b00; background: black; '>1&nbsp;undefined</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>3&nbsp;steps&nbsp;(</span><span style='color: #8b8b00; background: black; '>1&nbsp;undefined</span><span style='color: gray; background: black; '>,&nbsp;</span><span style='color: darkgreen; background: black; '>2&nbsp;passed</span><span style='color: gray; background: black; '>)</span><span style='color: black; background: black; '><br></span><span style='color: gray; background: black; '>0m0.003s</span><span style='color: black; background: black; '><br><br></span><span style='color: #8b8b00; background: black; '>You&nbsp;can&nbsp;implement&nbsp;step&nbsp;definitions&nbsp;for&nbsp;undefined&nbsp;steps&nbsp;with&nbsp;these&nbsp;snippets:</span><span style='color: black; background: black; '><br><br></span><span style='color: #8b8b00; background: black; '>То&nbsp;/^я&nbsp;должен&nbsp;увидеть&nbsp;пустую&nbsp;ленту$/&nbsp;do</span><span style='color: black; background: black; '><br></span><span style='color: #8b8b00; background: black; '>&nbsp;&nbsp;pending&nbsp;#&nbsp;express&nbsp;the&nbsp;regexp&nbsp;above&nbsp;with&nbsp;the&nbsp;code&nbsp;you&nbsp;wish&nbsp;you&nbsp;had</span><span style='color: black; background: black; '><br></span><span style='color: #8b8b00; background: black; '>end</span><span style='color: black; background: black; '><br><br></span></tt>
@@ -282,6 +318,7 @@
 !SLIDE
 
 # Пример
+## Реализация шагов
 
 @@@ ruby
     Then /я должен увидеть пустую ленту/ do
@@ -292,6 +329,7 @@
 !SLIDE
 
 # Пример
+## Запуск тестов
 
 <pre style="background: black">
 
@@ -301,7 +339,7 @@
 !SLIDE
 
 # Пример
-## Обработчик для "/username"
+## Реализация обработчика для "/username"
 
 @@@ ruby
     # app/controllers/status_controller.rb
