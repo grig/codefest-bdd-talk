@@ -2,12 +2,41 @@
 
 !SLIDE bulleted
 
-# О себе
+# Behavior-driven developmen и огурцы
+## План
+
+* Что это
+* Причем здесь огурцы
+* Пример
+
+!SLIDE bulleted
+
+# Ваш докладчик
 ## Алексей Григорович
 
+* экс-"архитектор" в Shamrock Mobile
 * Java, Ruby, JS
 * TDD-маньяк с 2008г
-* экс-"архитектор" в Shamrock Mobile
+
+!SLIDE bulleted
+
+# Behavior Driven Development
+
+* __Что это__
+* <span class="deemph">Причем здесь огурцы</span>
+* <span class="deemph">Пример</span>
+
+!SLIDE
+
+# Behavior Driven Development
+## Что это
+
+* TDD Done Right
+
+!NOTE
+
+* родом из Test Driven Development
+* 
 
 !SLIDE
 
