@@ -251,13 +251,12 @@
                         }, false);
     window.addEventListener('popstate',
                            function(e) {
-                             var current;
                              if (e.state === null) {
                                _t.init();
                              } else {
                                _t.current = e.state;
                              }
-                             _t.go(_t.current);
+                             _t.go();
                            }, false);
     this._update();
   };
@@ -299,11 +298,7 @@
       this.current = Math.max(this.current - 1, 1);
       this._update();
     },
-    go: function(num) {
-      if (history.pushState && this.current != num) {
-        history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
-      }
-      this.current = num;
+    go: function() {
       this._update(true);
     },
 
