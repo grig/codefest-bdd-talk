@@ -227,12 +227,7 @@
       return new Slide(el, idx);
     });
 
-    var h = window.location.hash;
-    try {
-      this.current = parseInt(h.split('#slide')[1], 10);
-    } catch (e) { /* squeltch */
-    }
-    this.current = isNaN(this.current) ? 1 : this.current;
+    this.init();
     var _t = this;
     doc.addEventListener('keydown',
                         function(e) {
@@ -256,7 +251,14 @@
                         }, false);
     window.addEventListener('popstate',
                            function(e) {
-                             _t.go(e.state);
+                             console.log("popstate: " + e.state);
+                             var current;
+                             if (e.state === null) {
+                               _t.init();
+                             } else {
+                               _t.current = e.state;
+                             }
+                             _t.go(_t.current);
                            }, false);
     this._update();
   };
@@ -267,6 +269,7 @@
       document.querySelector('#presentation-counter').innerText = this.current;
       if (history.pushState) {
         if (!dontPush) {
+          console.log("pushing " + this.current);
           history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
         }
       } else {
@@ -280,6 +283,15 @@
     },
 
     current: 0,
+    init: function() {
+      var h = window.location.hash;
+      try {
+        this.current = parseInt(h.split('#slide')[1], 10);
+      } catch (e) { /* squeltch */
+      }
+      this.current = current = isNaN(this.current) ? 1 : this.current;
+      console.log("popstate: current=" + this.current);
+    },
     next: function() {
       if (!this._slides[this.current - 1].buildNext()) {
         this.current = Math.min(this.current + 1, this._slides.length);
@@ -291,6 +303,7 @@
       this._update();
     },
     go: function(num) {
+      console.log("go " + num);
       if (history.pushState && this.current != num) {
         history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
       }
@@ -360,7 +373,10 @@
   };
 
   // Initialize
-  var slideshow = new SlideShow(query('.slide'));
+  window.onload = function() {
+    var slideshow = new SlideShow(query('.slide'));
+    console.log(slideshow);
+  };
 
   document.querySelector('#toggle-counter').addEventListener('click', toggleCounter, false);
   document.querySelector('#toggle-size').addEventListener('click', toggleSize, false);
