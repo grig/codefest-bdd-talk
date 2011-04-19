@@ -251,7 +251,6 @@
                         }, false);
     window.addEventListener('popstate',
                            function(e) {
-                             console.log("popstate: " + e.state);
                              var current;
                              if (e.state === null) {
                                _t.init();
@@ -269,7 +268,6 @@
       document.querySelector('#presentation-counter').innerText = this.current;
       if (history.pushState) {
         if (!dontPush) {
-          console.log("pushing " + this.current);
           history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
         }
       } else {
@@ -290,7 +288,6 @@
       } catch (e) { /* squeltch */
       }
       this.current = current = isNaN(this.current) ? 1 : this.current;
-      console.log("popstate: current=" + this.current);
     },
     next: function() {
       if (!this._slides[this.current - 1].buildNext()) {
@@ -303,7 +300,6 @@
       this._update();
     },
     go: function(num) {
-      console.log("go " + num);
       if (history.pushState && this.current != num) {
         history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
       }
@@ -373,10 +369,7 @@
   };
 
   // Initialize
-  window.onload = function() {
-    var slideshow = new SlideShow(query('.slide'));
-    console.log(slideshow);
-  };
+  var slideshow = new SlideShow(query('.slide'));
 
   document.querySelector('#toggle-counter').addEventListener('click', toggleCounter, false);
   document.querySelector('#toggle-size').addEventListener('click', toggleSize, false);
