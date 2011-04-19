@@ -103,12 +103,12 @@
     
       <div class="slide">
   <section class="bulleted">
-    <h1>Behavior-driven developmen и огурцы</h1>
+    <h1>Behavior-driven development и огурцы</h1>
 
 <h2>План</h2>
 
 <ul>
-<li>Что это</li>
+<li>Что такое behavior driven development</li>
 <li>Причем здесь огурцы</li>
 <li>Пример</li>
 </ul>
@@ -130,7 +130,7 @@
 <h2>Алексей Григорович</h2>
 
 <ul>
-<li>экс-"архитектор" в Shamrock Mobile</li>
+<li>экс-архитектор в Shamrock Mobile</li>
 <li>Java, Ruby, JS</li>
 <li>TDD-маньяк с 2008г</li>
 </ul>
@@ -173,11 +173,6 @@
 
 <h2>Что это</h2>
 
-<ul>
-<li>TDD Done Right</li>
-</ul>
-
-
   </section>
   <div class="attribution hidden">
     <a href="">
@@ -188,8 +183,8 @@
 
     
       <div class="slide">
-  <section>
-    <h1>Откровения</h1>
+  <section class="bulleted">
+    <h1>Проблемы наивного TDD</h1>
 
 <ul>
 <li><strong>модульные тесты не гарантируют работоспособность системы</strong></li>
@@ -206,8 +201,31 @@
 
     
       <div class="slide">
-  <section>
-    <h1>Откровения</h1>
+  <section class="bulleted">
+    <h1>Проблемы наивного TDD</h1>
+
+<ul>
+<li><strong>модульные тесты не гарантируют работоспособность системы</strong>
+
+<ul>
+<li>Решение: интеграционные/функциональные тесты</li>
+</ul>
+</li>
+</ul>
+
+
+  </section>
+  <div class="attribution hidden">
+    <a href="">
+      
+    </a>
+  </div>
+</div>
+
+    
+      <div class="slide">
+  <section class="bulleted">
+    <h1>Проблемы наивного TDD</h1>
 
 <ul>
 <li>модульные тесты не гарантируют работоспособность системы</li>
@@ -225,13 +243,37 @@
 
     
       <div class="slide">
+  <section class="bulleted">
+    <h1>Проблемы наивного TDD</h1>
+
+<ul>
+<li>модульные тесты не гарантируют работоспособность системы</li>
+<li><strong>начиная разработку с модульных тестов, легко загнать себя в тупик</strong>
+
+<ul>
+<li>начинать разработку с высокоуровневых тестов и двигаться вниз</li>
+</ul>
+</li>
+</ul>
+
+
+  </section>
+  <div class="attribution hidden">
+    <a href="">
+      
+    </a>
+  </div>
+</div>
+
+    
+      <div class="slide">
   <section>
-    <h1>Откровения</h1>
+    <h1>Проблемы наивного TDD</h1>
 
 <ul>
 <li>модульные тесты не гарантируют работоспособность системы</li>
 <li>начиная разработку с модульных тестов, легко загнать себя в тупик</li>
-<li><strong>высокоуровневые тесты должны легко читаться неподготовленными людьми</strong></li>
+<li><strong>высокоуровневые тесты нечитабельны целевой аудиторией</strong></li>
 </ul>
 
 
@@ -335,50 +377,6 @@
     <h1>BDD на примере</h1>
 
 <h2>twitter-клиент</h2>
-
-  </section>
-  <div class="attribution hidden">
-    <a href="">
-      
-    </a>
-  </div>
-</div>
-
-    
-      <div class="slide">
-  <section>
-    <h1>План работ</h1>
-
-<ol>
-<li>имплементим клиента для twitter API</li>
-<li>имплементим GUI</li>
-<li>???</li>
-<li>Profit!</li>
-</ol>
-
-
-  </section>
-  <div class="attribution hidden">
-    <a href="">
-      
-    </a>
-  </div>
-</div>
-
-    
-      <div class="slide">
-  <section>
-    <h1>На самом деле</h1>
-
-<ol>
-<li>учимся получать ленту статусов для пользователя</li>
-<li>реализуем получение статусов в клиенте</li>
-<li>реализуем отображение статусов в GUI</li>
-<li>учимся постить статусы в твиттер
-...
-N. интегрируем все наработки</li>
-</ol>
-
 
   </section>
   <div class="attribution hidden">
@@ -576,13 +574,43 @@ N. интегрируем все наработки</li>
   <section>
     <h1>Пример</h1>
 
-<h2>старт приложения</h2>
+<h2>Старт приложения</h2>
 
 <div class="highlight"><pre>  <span class="c1"># features/support/env.rb</span>
   <span class="no">Server</span><span class="o">.</span><span class="n">start</span>
   <span class="nb">at_exit</span> <span class="k">do</span>
     <span class="no">Server</span><span class="o">.</span><span class="n">stop</span>
   <span class="k">end</span>
+</pre>
+</div>
+
+
+
+
+  </section>
+  <div class="attribution hidden">
+    <a href="">
+      
+    </a>
+  </div>
+</div>
+
+    
+      <div class="slide">
+  <section>
+    <h1>Пример</h1>
+
+<h2>Реализация обработчика для "/username"</h2>
+
+<div class="highlight"><pre>  <span class="c1"># app/controllers/status_controller.rb</span>
+  <span class="k">class</span> <span class="nc">StatusController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+    <span class="k">def</span> <span class="nf">show</span>
+      <span class="n">render</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="c1"># routes.rb</span>
+  <span class="n">map</span> <span class="s2">&quot;/:username&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;status#show&quot;</span>
 </pre>
 </div>
 
@@ -704,17 +732,17 @@ N. интегрируем все наработки</li>
 
 <h2>следующий сценарий</h2>
 
-<p>@@@ cucumber</p>
+<div class="highlight"><pre>  <span class="k">Допустим </span>я зарегистрирован в twitter как пользователь <span class="s">&quot;biburat&quot;</span>
+  <span class="k">И </span>я добавил статус <span class="s">&quot;zomg добавил твиттер!&quot;</span>
+  <span class="k">Если </span>я запрашиваю статусы пользователя <span class="s">&quot;biburat&quot;</span>
+  <span class="k">То </span>я должен увидеть такие статусы:
+  | статус               |
+  | zomg добавил твиттер |
+</pre>
+</div>
 
-<pre><code>Допустим я зарегистрирован в twitter как пользователь "biburat"
-И я добавил статус "zomg добавил твиттер!"
-Если я запрашиваю статусы пользователя "biburat"
-То я должен увидеть такие статусы:
-| статус               |
-| zomg добавил твиттер |
-</code></pre>
 
-<p>@@@ cucumber</p>
+
 
   </section>
   <div class="attribution hidden">
@@ -726,15 +754,23 @@ N. интегрируем все наработки</li>
 
     
       <div class="slide">
-  <section>
+  <section class="bulleted">
     <h1>Сложности</h1>
 
 <ul>
 <li>либо работать с реальным твиттером
-** автоматически либо вручную</li>
+
+<ul>
+<li>автоматически либо вручную</li>
+</ul>
+</li>
 <li>либо работать с заглушкой
-<strong> нужны тесты на заглушку!
-</strong> необязательно cucumber, поскольку интересуют почти только разработчиков.</li>
+
+<ul>
+<li>нужны тесты на заглушку!</li>
+<li>необязательно cucumber, поскольку интересуют почти только разработчиков.</li>
+</ul>
+</li>
 </ul>
 
 
