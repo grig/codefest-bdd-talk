@@ -87,7 +87,7 @@
 
 * outside-in разработка
 
-!SLIDE
+!SLIDE bulleted
 
 # Проблемы наивного TDD
 
