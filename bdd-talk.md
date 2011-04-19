@@ -2,10 +2,10 @@
 
 !SLIDE bulleted
 
-# Behavior-driven developmen и огурцы
+# Behavior-driven development и огурцы
 ## План
 
-* Что это
+* Что такое behavior driven development
 * Причем здесь огурцы
 * Пример
 
